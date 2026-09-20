@@ -246,7 +246,7 @@
   .topnav-scroll a{white-space:nowrap;text-decoration:none;padding:6px 0;touch-action:manipulation;}
   .topnav-scroll a.active{color:var(--teal);}
   @media (min-width:900px){
-    .topnav, .topnav-scroll{display:none;}
+    .topnav, .topnav-scroll, .focus-toggle.mobile{display:none;}
   }
 
   /* ---------- Main column ---------- */
@@ -910,10 +910,9 @@
   /* ---------- Contato ---------- */
   .contact-wrap{
     display:flex;
-    justify-content:space-between;
-    align-items:flex-end;
+    flex-direction:column;
+    align-items:flex-start;
     gap:32px;
-    flex-wrap:wrap;
   }
   .contact-head{
     font-family:var(--font-display);
