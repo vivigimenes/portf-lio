@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Ctext%20y%3D%220.9em%22%20font-size%3D%2290%22%3E%F0%9F%8E%80%3C/text%3E%3C/svg%3E">
-<title>Lavi Gimenes | Portfólio</title>
+<title>Lavi Gimenes</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,400..600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap');
 
@@ -158,26 +158,28 @@
     pointer-events:none;
   }
   .rail-toggle{
-    position:absolute;
-    top:4px;
-    right:2px;
-    width:26px;
-    height:26px;
+    display:none;
+    position:fixed;
+    top:12px;
+    left:28px;
+    width:30px;
+    height:30px;
     border-radius:50%;
     border:1px solid var(--line-strong);
     background:var(--bg);
     color:var(--ink-soft);
-    display:flex;
     align-items:center;
     justify-content:center;
     cursor:pointer;
-    z-index:2;
-    opacity:1 !important;
-    pointer-events:auto !important;
+    z-index:40;
+    box-shadow:0 2px 8px -2px var(--line-strong);
+  }
+  @media (min-width:900px){
+    .rail-toggle{display:flex;}
   }
   .rail-toggle:hover{border-color:var(--teal);color:var(--teal);}
-  .rail-toggle svg{width:13px;height:13px;transition:transform .28s ease;}
-  .rail.collapsed .rail-toggle svg{transform:rotate(180deg);}
+  .rail-toggle svg{width:14px;height:14px;transition:transform .28s ease;}
+  .rail-toggle[aria-expanded="false"] svg{transform:rotate(180deg);}
   .rail-mark{
     font-family:var(--font-display);
     font-weight:700;
@@ -1323,11 +1325,12 @@
   <button class="focus-btn" data-focus="brand" type="button">Marca</button>
 </div>
 
+<button class="rail-toggle" id="railToggle" type="button" aria-label="Recolher menu" aria-expanded="true">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg>
+</button>
+
 <div class="frame">
   <aside class="rail" id="rail">
-    <button class="rail-toggle" id="railToggle" type="button" aria-label="Recolher menu" aria-expanded="true">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg>
-    </button>
     <div class="rail-mark">Lavi Gimenes</div>
     <div class="rail-role">Análise&nbsp;·&nbsp;Liderança<br>Conteúdo</div>
     <div class="rail-foot">
