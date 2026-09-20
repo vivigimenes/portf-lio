@@ -141,7 +141,43 @@
     flex-shrink:0;
     padding:48px 24px 32px 0;
     display:none;
+    transition:width .28s ease, padding .28s ease;
+    overflow:visible;
   }
+  .rail > *{
+    opacity:1;
+    transition:opacity .18s ease;
+  }
+  .rail.collapsed{
+    width:0;
+    padding-left:0;
+    padding-right:0;
+  }
+  .rail.collapsed > *{
+    opacity:0;
+    pointer-events:none;
+  }
+  .rail-toggle{
+    position:absolute;
+    top:52px;
+    right:-13px;
+    width:26px;
+    height:26px;
+    border-radius:50%;
+    border:1px solid var(--line-strong);
+    background:var(--bg);
+    color:var(--ink-soft);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    z-index:2;
+    opacity:1 !important;
+    pointer-events:auto !important;
+  }
+  .rail-toggle:hover{border-color:var(--teal);color:var(--teal);}
+  .rail-toggle svg{width:13px;height:13px;transition:transform .28s ease;}
+  .rail.collapsed .rail-toggle svg{transform:rotate(180deg);}
   .rail-mark{
     font-family:var(--font-display);
     font-weight:700;
@@ -1288,7 +1324,10 @@
 </div>
 
 <div class="frame">
-  <aside class="rail">
+  <aside class="rail" id="rail">
+    <button class="rail-toggle" id="railToggle" type="button" aria-label="Recolher menu" aria-expanded="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg>
+    </button>
     <div class="rail-mark">Lavi Gimenes</div>
     <div class="rail-role">Análise&nbsp;·&nbsp;Liderança<br>Conteúdo</div>
     <div class="rail-foot">
@@ -1737,6 +1776,23 @@
   var t2 = document.getElementById('themeToggleMobile');
   if(t1) t1.addEventListener('click', toggleTheme);
   if(t2) t2.addEventListener('click', toggleTheme);
+
+  /* ---------- Recolher barra lateral ---------- */
+  var railEl = document.getElementById('rail');
+  var railToggle = document.getElementById('railToggle');
+  if(railEl && railToggle){
+    try{
+      if(localStorage.getItem('lavi-rail-collapsed') === '1'){
+        railEl.classList.add('collapsed');
+        railToggle.setAttribute('aria-expanded', 'false');
+      }
+    }catch(e){}
+    railToggle.addEventListener('click', function(){
+      var collapsed = railEl.classList.toggle('collapsed');
+      railToggle.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+      try{ localStorage.setItem('lavi-rail-collapsed', collapsed ? '1' : '0'); }catch(e){}
+    });
+  }
 
   var sections = Array.prototype.slice.call(document.querySelectorAll('main section[id]'));
   var deskLinks = Array.prototype.slice.call(document.querySelectorAll('#deskNav a'));
