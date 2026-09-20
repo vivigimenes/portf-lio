@@ -192,7 +192,7 @@
   .rail-list a.active .idx{color:var(--teal);opacity:1;}
 
   .rail-foot{
-    margin-top:40px;
+    margin-bottom:32px;
     display:flex;
     flex-direction:column;
     gap:8px;
@@ -514,10 +514,14 @@
   .intro-name{
     font-family:var(--font-display);
     font-weight:600;
-    font-size:clamp(1.8rem, 6vw, 2.6rem);
+    font-size:clamp(1.4rem, 5vw, 2.1rem);
     color:var(--ink);
     opacity:0;
+    text-align:center;
+    max-width:20ch;
+    text-wrap:balance;
   }
+  .intro-name em{font-style:italic;color:var(--teal);}
   @media (prefers-reduced-motion: no-preference){
     .intro-name{animation:intro-fade .7s ease forwards .7s;}
   }
@@ -1252,7 +1256,7 @@
       <ellipse class="bow-loop bow-loop-right" style="fill:var(--bg)" opacity="0.35" cx="158" cy="68" rx="9" ry="5"/>
       <rect class="bow-knot" fill="url(#bowGradIntro)" stroke="var(--bg)" stroke-width="3" x="82" y="70" width="36" height="20" rx="10"/>
     </svg>
-    <span class="intro-name">Lavi Gimenes</span>
+    <span class="intro-name">Prazer, eu sou o <em>Lavi</em>.</span>
   </div>
 </div>
 
@@ -1287,16 +1291,6 @@
   <aside class="rail">
     <div class="rail-mark">Lavi Gimenes</div>
     <div class="rail-role">Análise&nbsp;·&nbsp;Liderança<br>Conteúdo</div>
-    <ul class="rail-list" id="deskNav">
-      <li><a href="#hero" data-idx="00"><span class="idx">00</span>Início</a></li>
-      <li><a href="#perfil" data-idx="01"><span class="idx">01</span>Perfil</a></li>
-      <li><a href="#aiqfome" data-idx="02"><span class="idx">02</span>aiqfome</a></li>
-      <li><a href="#conset" data-idx="03"><span class="idx">03</span>CONSET</a></li>
-      <li><a href="#estrategia" data-idx="04"><span class="idx">04</span>Estrategista de Conteúdo</a></li>
-      <li><a href="#ferramentas" data-idx="05"><span class="idx">05</span>Ferramentas</a></li>
-      <li><a href="#formacao" data-idx="06"><span class="idx">06</span>Formação</a></li>
-      <li><a href="#contato" data-idx="07"><span class="idx">07</span>Contato</a></li>
-    </ul>
     <div class="rail-foot">
       <button class="cmdk-trigger" id="cmdkTriggerDesk" type="button">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
@@ -1309,6 +1303,16 @@
         <button class="focus-btn" data-focus="brand" type="button">Marca</button>
       </div>
     </div>
+    <ul class="rail-list" id="deskNav">
+      <li><a href="#hero" data-idx="00"><span class="idx">00</span>Início</a></li>
+      <li><a href="#perfil" data-idx="01"><span class="idx">01</span>Perfil</a></li>
+      <li><a href="#aiqfome" data-idx="02"><span class="idx">02</span>aiqfome</a></li>
+      <li><a href="#conset" data-idx="03"><span class="idx">03</span>CONSET</a></li>
+      <li><a href="#estrategia" data-idx="04"><span class="idx">04</span>Estrategista de Conteúdo</a></li>
+      <li><a href="#ferramentas" data-idx="05"><span class="idx">05</span>Ferramentas</a></li>
+      <li><a href="#formacao" data-idx="06"><span class="idx">06</span>Formação</a></li>
+      <li><a href="#contato" data-idx="07"><span class="idx">07</span>Contato</a></li>
+    </ul>
   </aside>
 
   <main>
